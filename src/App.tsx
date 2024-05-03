@@ -1,11 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "sonner";
 import { ThemeProvider } from "styled-components";
-import { Router } from "./Router";
+import { Router } from "./router";
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/theme/default";
 
-export default function App() {
+export function App() {
 	return (
 		<ThemeProvider theme={defaultTheme}>
 			<GlobalStyle />
