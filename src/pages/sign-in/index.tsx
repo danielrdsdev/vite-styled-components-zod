@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { toast } from "sonner";
 import * as z from "zod";
 import { Button } from "../../components/button";
@@ -32,7 +32,6 @@ const formSchema = z.object({
 
 export const SignIn = () => {
 	const { handlePassword, typeInput, togglePassword } = useHandlePasswordIcon();
-	const navigate = useNavigate();
 
 	const {
 		handleSubmit,
@@ -58,7 +57,7 @@ export const SignIn = () => {
 			description: "Seja bem-vindo(a)",
 		});
 
-		navigate("/dashboard");
+		redirect("/dashboard");
 	}
 
 	return (

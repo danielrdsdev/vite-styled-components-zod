@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { toast } from "sonner";
 import * as z from "zod";
 import { Button } from "../../components/button";
@@ -38,7 +38,6 @@ const formSchema = z
 
 export const SignUp = () => {
 	const { handlePassword, typeInput, togglePassword } = useHandlePasswordIcon();
-	const navigate = useNavigate();
 
 	const {
 		handleSubmit,
@@ -66,7 +65,7 @@ export const SignUp = () => {
 			description: "Faça login para acessar sua conta",
 		});
 
-		navigate("/");
+		redirect("/");
 	}
 
 	return (

@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { toast } from "sonner";
 import * as z from "zod";
 import { Button } from "../../components/button";
@@ -19,8 +19,6 @@ const formSchema = z.object({
 });
 
 export const ForgotPassword = () => {
-	const navigate = useNavigate();
-
 	const {
 		handleSubmit,
 		register,
@@ -44,7 +42,7 @@ export const ForgotPassword = () => {
 			description: "Confira sua caixa de entrada para redefinir sua senha",
 		});
 
-		navigate("/");
+		redirect("/");
 	}
 	return (
 		<Container>
@@ -63,7 +61,7 @@ export const ForgotPassword = () => {
 					</FormGroup>
 
 					<Button type="submit" disabled={isSubmitting}>
-						{isSubmitting ? <LoadingIcon /> : "Criar conta"}
+						{isSubmitting ? <LoadingIcon /> : "Enviar"}
 					</Button>
 				</form>
 
